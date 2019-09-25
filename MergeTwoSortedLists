@@ -25,6 +25,7 @@ class Solution {
         ListNode p1 = l1;
         ListNode p2 = l2;
         
+        //This will handle if l1 or l2 are null
         if (p1 == null && p2 != null) {
             return p2;
         } else if (p1 != null && p2 == null) {
@@ -33,18 +34,19 @@ class Solution {
             return p1;
         }
         
+        //where everything happens
         while (p1 != null && p2 != null) {
-            if (p1.val <= p2.val) {
-                p.next = p1;
-                p1 = p1.next;
-                p = p.next;
+            if (p1.val <= p2.val) {   //compares values
+                p.next = p1;          //sets the node after head to l1
+                p1 = p1.next;         //updates p1 to the next node
+                p = p.next;           //updates the head 
             } else {
                 p.next = p2;
                 p2 = p2.next;
                 p = p.next;
             }       
             
-            if (p1 == null) {
+            if (p1 == null) {        // checkas if p1 or p2 are null
                 p.next = p2;
             }
         
