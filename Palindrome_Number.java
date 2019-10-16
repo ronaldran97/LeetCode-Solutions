@@ -10,6 +10,7 @@ Example 2:
 Input: -121
 Output: false
 Explanation: From left to right, it reads -121. From right to left, it becomes 121-. Therefore it is not a palindrome.
+
 Example 3:
 
 Input: 10
