@@ -1,0 +1,34 @@
+/**
+The point is if we take points p1(x, y), p2(x1, y1), p3(x3, y3), slopes of any two pairs is same then p1, p2, p3 lies on same line.
+slope from p1 and p2 is y - y1 / x - x1
+slope from p2 and p3 is y2 - y1 / x2 - x1
+if these two slopes equal, then p1, p2, p3 lies on same line
+
+Runtime: 0 ms, faster than 100.00% of Java online submissions for Check If It Is a Straight Line.
+Memory Usage: 39.2 MB, less than 66.86% of Java online submissions for Check If It Is a Straight Line.
+**/
+
+
+class Solution {
+    public boolean checkStraightLine(int[][] coordinates) {
+        // base case:- there are only two points, return true
+        // otherwise, check each point lies on line using above equation.
+		
+        for(int i=2;i<coordinates.length;i++){
+            if(!onLine(coordinates[i], coordinates[0], coordinates[1]))
+                return false;
+        }
+        return true;
+    }
+    
+    public boolean onLine(int[] p1, int[] p2, int[] p3) {
+        int x = p1[0];
+        int x1 = p2[0];
+        int x2 = p3[0];
+        int y = p1[1];
+        int y1 = p2[1];
+        int y2 = p3[1];
+        
+        return ((y - y1)*(x2 -x1) == (x - x1)*(y2 - y1));
+    }
+}
